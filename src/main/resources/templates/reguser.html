@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="/jsandcss/bootstrap.css"/>
+    <link rel="stylesheet" href="/jsandcss/bootstrap-theme.css"/>
+    <script src="/jsandcss/bootstrap.js"></script>
+    <link href="/jsandcss/login.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="login">
+    <div id="darkbannerwrap"></div>
+    <#if ismessage??>
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert"aria-hidden="true"></button>
+            提示！注册成功。
+        </div>
+    </#if>
+    <form action="/reguser" method="post">
+        <input name="username" placeholder="用户名" required="" type="text">
+        <hr class="hr15">
+        <input name="password" placeholder="密码" required="" type="password">
+        <img src="/images/captrue">
+        <input name="captruecode" placeholder="验证码" required="" type="text">
+        <hr class="hr15">
+        <input name="roles" placeholder="用户组" required="" type="text">
+        <hr class="hr15">
+        <input name="userpics" placeholder="头像。 如http://xxxx.jpg" required="" type="text">
+        <hr class="hr15">
+        <input name="messages" placeholder="个人签名" required="" type="text">
+        <hr class="hr15">
+
+        <input value="注册" style="width:100%;" type="submit">
+    </form>
+
+
+</div>
+
+</body>
+</html>

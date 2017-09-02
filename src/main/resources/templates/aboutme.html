@@ -1,0 +1,25 @@
+<#include "heard.html"/>
+<#include "navboard.html"/>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于我</h3>
+                </div>
+                <div class="panel-body">
+                    <div style="text-align: center;">
+                        <img src="${justside.userpics!''}" class="img-circle" height="118"/>
+                        <h4>登录ID: ${justside.username!''}</h4>
+                        <h4>用户组: ${justside.userroles!''}</h4>
+                        <h2>签名:</h2>
+                        <h4>${justside.messages!''}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

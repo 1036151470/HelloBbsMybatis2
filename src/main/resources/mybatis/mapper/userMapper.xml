@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mainmapper">
+
+    <sql id="user_r" >
+        username, password,userroles,userpics,messages
+    </sql>
+    <sql id="user_v" >
+        #{username},#{password},#{userroles},#{userpics},#{messages}
+    </sql>
+
+    <insert id="changesuser" parameterType="User">
+        UPDATE bbs_user SET username=#{username},password=#{password},userroles=#{userroles},userpics=#{userpics},messages=#{messages} WHERE id = #{id}
+    </insert>
+
+    <insert id="reguser" parameterType="User">
+        INSERT INTO bbs_user(<include refid="user_r" />) VALUES (<include refid="user_v" />)
+    </insert>
+
+    <select id="getuser" parameterType="String" resultType="User">
+        SELECT *FROM bbs_user WHERE username = #{username}
+    </select>
+
+</mapper>

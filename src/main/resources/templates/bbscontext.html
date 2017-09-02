@@ -1,0 +1,103 @@
+<#include "heard.html"/>
+<link rel="stylesheet" type="text/css" href="../dist/css/wangEditor.min.css"/>
+<#include "navboard.html"/>
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <#if context??>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-2">
+                        <div style="text-align: left;">
+                            <img src="${context.userpics!''}" class="img-circle" height="118"/>
+                            <h5>登录ID: ${context.username!''}</h5>
+                            <h4>签名:</h4>
+                            <h5>${context.messages!''}</h5>
+                        </div>
+
+                    </div>
+                    <div class="col-md-10">
+                        <div style="text-align: center;">
+                            <h4>${context.context!''}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </#if>
+        <#if contextwith??>
+            <#list contextwith as oc>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            <div style="text-align: left;">
+                                <img src="${oc.userpics!''}" class="img-circle" height="118"/>
+                                <h5>登录ID: ${oc.username!''}</h5>
+                                <h4>签名:</h4>
+                                <h5>${oc.messages!''}</h5>
+                            </div>
+
+                        </div>
+                        <div class="col-md-10">
+                            <div style="text-align: center;">
+                                <h4>${oc.context!''}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </#list>
+        </#if>
+
+        </br>
+        <#if context??>
+        <form action="/wirtedatahtmlwith" method="post">
+            <input type="hidden" name="withc" value="${context.id!''}">
+            <input type="hidden" id="justforurl" name="justforurl">
+            <input type="hidden" name="intodbwith" value="${intodbwith!''}">
+            <div class="form-group">
+                <textarea id="content" name="con" rows="15"></textarea>
+            </div>
+
+            <div class="form-group">
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-default btn-primary">保存</button>
+                </div>
+            </div>
+        </form>
+
+        <script type="text/javascript" src="../dist/js/lib/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../dist/js/wangEditor.js"></script>
+
+        <script type="text/javascript">
+            var test =  window.location.href;
+            $("#justforurl").val(test);
+        </script>
+
+
+        <script type="text/javascript">
+            wangEditor.config.printLog = false;
+            var editor = new wangEditor('content');
+            editor.config.emotionsShow = 'icon';
+            editor.config.emotions = {
+                'default': {
+                    title: '默认',
+                    data: '/emotions.data'
+                },
+            };
+
+            editor.onchange = function () {
+                console.log(this.$txt.html());
+            };
+            editor.create();
+        </script>
+        </#if>
+    </div>
+</div>
+</body>
+</html>
+

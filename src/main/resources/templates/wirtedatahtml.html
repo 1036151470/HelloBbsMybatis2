@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/jsandcss/bootstrap.css"/>
+    <link rel="stylesheet" href="/jsandcss/bootstrap-theme.css"/>
+    <script src="/jsandcss/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="/bootstrap.css"/>
+    <link rel="stylesheet" href="/bootstrap-theme.css"/>
+    <script src="/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/css/wangEditor.min.css"/>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<#include "navboard.html"/>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+
+            <div class="btn-group">
+                <button id="select1"  type="button" class="btn btn-default">综合讨论</button>
+                <button id="select2" type="button" class="btn btn-default">经验交流</button>
+                <button id="select3" type="button" class="btn btn-default">代码片段分享</button>
+                <button id="select4" type="button" class="btn btn-default">Android开发专区</button>
+                <button id="select5" type="button" class="btn btn-default">Web开发专区</button>
+                <button id="select6" type="button" class="btn btn-default">Windows开发专区</button>
+                <button id="select7" type="button" class="btn btn-default">投诉</button>
+            </div>
+
+            <form action="/wirtedatahtml" method="post">
+                <input type="hidden" id="justforurl" name="justforurl">
+                <input id="showselectinput">
+                <input  type="hidden" id="selectinput" name="selectinput">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="title" placeholder="标题">
+                </div>
+
+                <div class="form-group">
+                    <textarea id="content" name="con" rows="15"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-default btn-primary">保存</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../dist/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../dist/js/wangEditor.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#select1").click(function () {
+            $("#showselectinput").val("综合讨论");
+            $("#selectinput").val("everythingtotalk.into_everythingtotalk");
+            $("#justforurl").val('bbs_everythingtotalk');
+
+        })
+        $("#select2").click(function () {
+            $("#showselectinput").val("经验交流");
+            $("#selectinput").val("learnfromothers.into_everythingtotalk");
+            $("#justforurl").val('bbs_learnfromothers');
+        })
+        $("#select3").click(function () {
+            $("#showselectinput").val("代码片段分享");
+            $("#selectinput").val("codetoshare.into_everythingtotalk");
+            $("#justforurl").val('bbs_codetoshare');
+        })
+        $("#select4").click(function () {
+            $("#showselectinput").val("Android开发专区");
+            $("#selectinput").val("forandroid.into_everythingtotalk");
+            $("#justforurl").val('bbs_forandroid');
+        })
+        $("#select5").click(function () {
+            $("#showselectinput").val("Web开发专区");
+            $("#selectinput").val("forweb.into_everythingtotalk");
+            $("#justforurl").val('bbs_forweb');
+        })
+        $("#select6").click(function () {
+            $("#showselectinput").val("Windows开发专区");
+            $("#selectinput").val("forwindows.into_everythingtotalk");
+            $("#justforurl").val('bbs_forwindows');
+        })
+        $("#select7").click(function () {
+            $("#showselectinput").val("投诉");
+            $("#selectinput").val("forcomplain.into_everythingtotalk");
+            $("#justforurl").val('bbs_forcomplain');
+        })
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    wangEditor.config.printLog = false;
+    var editor = new wangEditor('content');
+    editor.config.emotionsShow = 'icon';
+    editor.config.emotions = {
+        'default': {
+            title: '默认',
+            data: '/emotions.data'
+        },
+    };
+
+    editor.onchange = function () {
+        console.log(this.$txt.html());
+    };
+    editor.create();
+</script>
+
+
+</body>
+</html>

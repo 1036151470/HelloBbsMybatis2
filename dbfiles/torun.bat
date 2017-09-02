@@ -1,0 +1,15 @@
+﻿mysql -uroot -proot forliu <d:\Desktop\db\bbs_codetoshare.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_codetosharewith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_everythingtotalk.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_everythingtotalkwith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forandroid.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forandroidwith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forcomplain.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forcomplainwith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forweb.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forwebwith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forwindows.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_forwindowswith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_learnfromothers.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_learnfromotherswith.sql
+mysql -uroot -proot forliu <d:\Desktop\db\bbs_user.sql

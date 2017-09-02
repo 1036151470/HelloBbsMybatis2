@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div canvas="container">
+                    <#if justside??>
+                        <img src="${justside.userpics!'/images/small.gif'}" class="img-circle" height="48"/>
+                    </#if>
+                    <#if !justside??>
+                        <img src="${'/images/small.gif'}" class="img-circle" height="48"/>
+                    </#if>
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-6">
+                <p class="text-right">
+                    <a href="/">
+                        <button type="button" class="btn btn-default btn-primary">首页</button>
+                    </a>|||
+                    <#if !justside??>
+                        <a href="/login">
+                            <button type="button" class="btn btn-default btn-primary">登录</button>
+                        </a>
+                        |||
+                        <a href="/reguser">
+                            <button type="button" class="btn btn-default btn-primary">注册</button>
+                        </a>
+                        |||
+
+                    </#if>
+                    <#if justside??>
+                        <a href="/wirtedatahtml">
+                            <button type="button" class="btn btn-default btn-primary">发布</button>
+                        </a>|||
+                        <a href="/yourselfmessages">
+                            <button type="button" class="btn btn-default btn-primary">资料修改</button>
+                        </a>|||
+                        <a href="/aboutme">
+                            <button type="button" class="btn btn-default btn-primary">关于我</button>
+                        </a>|||
+
+                        <a href="/logout">
+                            <button type="button" class="btn btn-default btn-primary">退出</button>
+                        </a>
+                    </#if>
+                </p>
+            </div>
+        </div>
+    </div>
+</nav>
+</br></br></br>

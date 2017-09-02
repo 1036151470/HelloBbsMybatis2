@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="forweb">
+    <sql id="Base_r" >
+        title, createdtime,changetime,context,user
+    </sql>
+    <sql id="Base_v" >
+        #{title},#{createdtime},#{changetime},#{context},#{user}
+    </sql>
+
+    <sql id="Base_read" >
+        title, createdtime,changetime,context,user,withc
+    </sql>
+    <sql id="Base_values" >
+        #{title},#{createdtime},#{changetime},#{context},#{user},#{withc}
+    </sql>
+
+    <insert id="into_everythingtotalk" parameterType="Boardcontext">
+        INSERT INTO bbs_forweb(<include refid="Base_r" />) VALUES (<include refid="Base_v" />)
+    </insert>
+
+    <insert id="into_everythingtotalkwith" parameterType="Boardcontextwith">
+        INSERT INTO bbs_forwebwith(<include refid="Base_read" />) VALUES (<include refid="Base_values" />)
+    </insert>
+
+    <select id="getonebbs_everythingtotalk" parameterType="int" resultType="Boardcontext">
+        SELECT *FROM bbs_forweb WHERE id=#{id}
+    </select>
+
+    <select id="getwithbbs_user" parameterType="int" resultType="Userwith">
+        SELECT * FROM bbs_forweb,bbs_user WHERE bbs_forweb.id = #{id} AND bbs_forweb.user = bbs_user.username
+    </select>
+
+
+    <select id="getwithbbs_everythingtotalk" parameterType="int" resultType="Boardcontextwith">
+        SELECT bbs_user.*, bbs_forwebwith.* FROM bbs_forweb,bbs_forwebwith,bbs_user WHERE bbs_forweb.id = #{id} AND bbs_forweb.id = bbs_forwebwith.withc AND bbs_forwebwith.user = bbs_user.username
+    </select>
+
+    <select id="getallbbs_everythingtotalk" resultType="Boardcontext">
+        SELECT *FROM bbs_forweb
+    </select>
+
+</mapper>
