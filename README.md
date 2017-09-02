@@ -12,9 +12,10 @@ It'sjustabbs（个人论坛）
 	Mybatis
 	
 ## 安装运行
-* 本程序为maven项目，所有首先需要下载和配置好maven。http://maven.apache.org/download.cgi
+* 本程序为maven项目，所以首先需要下载和配置好maven。http://maven.apache.org/download.cgi
 * 返回本程序项目主页点击右上角按钮进行下载
 * 解压项目
+* 导入dbfiles\目录下sql文件到数据库
 * 使用命令 mvn clean package构建项目
 * 构建完成后一般在target\目录下会得到一个jar包，运行该jar包即可
 
